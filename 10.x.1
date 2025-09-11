@@ -1,1 +1,40 @@
+#include <iostream>
+#include <array>
 
+int countTotalItems(const std::array<int, 3> &itemAmount);
+
+
+enum Item
+{
+item_health_potion,
+item_torch,
+item_arrow
+};
+
+int main()
+{
+
+std::array <int,3> itemAmount {0, 0, 0 };
+
+std::cout << "Game start!" << "\n";
+
+itemAmount [item_health_potion] = 2 ;
+
+itemAmount [item_torch] = 5 ;
+
+itemAmount [item_arrow] = 10 ;
+
+std::cout << "Sum all items hero is " << countTotalItems(itemAmount);
+
+}
+
+int countTotalItems(const std::array<int, 3> &itemAmount)
+{
+int sumItems { 0 };
+
+for (int item : itemAmount) 
+    {
+    sumItems += item;  
+    }
+return sumItems;
+}
