@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+void inputStudentsName(std::vector <std::string> &studentsName, int index)
+{
+std::cin >> studentsName.at(index);
+}
+
+void inputStudentsGrade(std::vector <int> &studentsGrade, int index)
+{
+std::cin >> studentsGrade.at(index);
+}
+
+struct Student
+{
+
+int grade {};
+
+std::string name {};
+};
+
+int main()
+{
+int countStudents { 0 };
+
+std::cout << "Enter quantity students." << "\n";
+
+std::cin >> countStudents;
+
+std::vector <int> studentsGrade(countStudents);
+
+std::vector <std::string> studentsName(countStudents);
+
+for(int index{ 0 }; index < countStudents; index++)
+{
+std::cout << "Enter name " << index + 1 << " student." <<"\n";
+
+inputStudentsName(studentsName, index);
+
+std::cout << "Enter grade " << index + 1 << " student." << "\n";
+
+inputStudentsGrade(studentsGrade, index);
+}
+	for (int startIndex{ 0 }; startIndex < countStudents - 1; ++startIndex)
+	{
+		int smallestIndex{ startIndex };
+ 
+		for (int currentIndex{ startIndex + 1 }; currentIndex < countStudents; ++currentIndex)
+		{
+			if (studentsGrade[currentIndex] < studentsGrade[smallestIndex])
+				smallestIndex = currentIndex;
+		}
+ 
+		std::swap(studentsGrade[startIndex], studentsGrade[smallestIndex]);
+                std::swap(studentsName[startIndex], studentsName[smallestIndex]);
+	}
+
+for( int index{ 0 }; index < countStudents; index++)
+{
+std::cout << studentsName.at(index) <<" got a grade of " << studentsGrade.at(index) << "\n";
+}
+
+}
+
