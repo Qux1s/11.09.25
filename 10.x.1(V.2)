@@ -1,0 +1,44 @@
+#include <iostream>
+#include <array>
+
+enum Item
+{
+item_health_potion,
+item_torch,
+item_arrow,
+max_items
+};
+
+using inventory_type = std::array <int, Item::max_items>;
+
+int countTotalItems(const inventory_type& itemAmount);
+
+int main()
+{
+
+//std::array <int,3> itemAmount {0, 0, 0 };
+
+inventory_type items {};
+
+std::cout << "Game start!" << "\n";
+
+items [item_health_potion] = 2 ;
+
+items [item_torch] = 5 ;
+
+items [item_arrow] = 10 ;
+
+std::cout << "Sum all items hero is " << countTotalItems(items);
+
+}
+
+int countTotalItems(const inventory_type& itemAmount)
+{
+int sumItems { 0 };
+
+for (int item : itemAmount) 
+    {
+    sumItems += item;  
+    }
+return sumItems;
+}
