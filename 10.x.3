@@ -1,0 +1,23 @@
+#include <iostream>
+
+void swapIntenger(int &firstNumber,int &secondNumber);
+
+int main()
+{
+    int firstNumber { 5 };
+    
+    int secondNumber { 12 };
+    
+    swapIntenger(firstNumber,secondNumber);
+    
+    std::cout << "firstNumber = " << firstNumber  << "\n" << "secondNumber = " << secondNumber;
+}
+
+void swapIntenger(int &firstNumber,int &secondNumber)
+{
+    int temp = firstNumber;
+    
+    firstNumber = secondNumber;
+    
+    secondNumber = temp;
+}
