@@ -1,26 +1,26 @@
 #include <iostream>
 
-void printArrayInStyleC(char &testString);
+void printArrayInStyleC(char *testString);
 
 int main()
 {
     char testString[]{"Hello, world!"};
 
-printArrayInStyleC(*testString);
+printArrayInStyleC(testString);
     
     return 0;
     
 }
 
-void printArrayInStyleC(char &testString)
+void printArrayInStyleC(char *testString)
 {
         while(true)
     {
         static int index { 0 };
         
-        std::cout << (&testString+index);
+        std::cout << *(testString+index);
         
-        if((&testString+index) == 0)
+        if(*(testString+index) == '\0')
         break;
         
         ++index;
